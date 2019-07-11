@@ -29,6 +29,14 @@ Run:
 
 docker-compose -f local.yml run
 
+The app will stay listening in the address:
+
+http://0.0.0.0:8000/core/word-count/
+
+Note that this is a development instance. The production setup is placed in the production.yml.
+
+
+
 Testing:
 ^^^^^^^^^^^^^^^^^^^^^
 
