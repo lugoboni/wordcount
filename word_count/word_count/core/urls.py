@@ -1,11 +1,8 @@
 from django.urls import path
 
-from word_count.core.views import (
-)
+from word_count.core.views import (WordCountFormView)
 
 app_name = "users"
 urlpatterns = [
-    path("~redirect/", view=user_redirect_view, name="redirect"),
-    path("~update/", view=user_update_view, name="update"),
-    path("<str:username>/", view=user_detail_view, name="detail"),
+    path("~word-count/", view=WordCountFormView, name="word-count"),
 ]
