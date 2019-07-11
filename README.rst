@@ -37,5 +37,3 @@ docker-compose -f local.yml run django python manage.py test
 docker-compose -f local.yml run django coverage run manage.py test
 
 docker-compose -f local.yml run django coverage html
-
-docker-compose -f local.yml run django open htmlcov/index.html
