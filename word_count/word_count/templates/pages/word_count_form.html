@@ -1,9 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="row">
+<div class="title">
+    <h2>PLEASE TYPE SOME WORDS TO COUNT</h2>
+</div>
+</div>
+<div class="row">
+	<div class="col-md-4 col-md-push-4">
+		<form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+          <div class="form-group">
+              <div class="row">
+                  <div class="col-lg-3 bold"></div>
+                  <div class="col-lg-4">{{field}}</div>
+              </div>
+          </div>
+      {% endfor %}
+'
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <input type="submit" class="btn btn-secondary btn-lg" value="Submit" />
+            </div>
+        </div>'
 
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+		</form>
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+       </div>
+	</div>
+</div>
+
 {% endblock content %}
