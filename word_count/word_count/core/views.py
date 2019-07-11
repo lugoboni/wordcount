@@ -10,7 +10,7 @@ from ..models import (WordCount,)
 
 class WordCountFormView(FormView):
 
-    template_name = 'word_count_form.html'
+    template_name = 'pages/word_count_form.html'
     form_class = WordCountForm
     initial = {}
     http_method_names = ['get', 'post', 'head', 'options', 'trace']
