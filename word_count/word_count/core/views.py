@@ -1,12 +1,12 @@
 from django import forms
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.views.generic import View
 from django.views.generic.edit import FormView
 
-from ..forms import (WordCountForm,)
-from ..models import (WordCount,)
+from .forms import (WordCountForm,)
+from .models import (WordCount,)
 
 class WordCountFormView(FormView):
 
@@ -15,7 +15,7 @@ class WordCountFormView(FormView):
     initial = {}
     http_method_names = ['get', 'post', 'head', 'options', 'trace']
 
-    def get(self, request, service, code):
+    def get(self, request):
         form = self.form_class()
 
         self.context = {'form': form}

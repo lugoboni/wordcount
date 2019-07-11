@@ -2,7 +2,7 @@ from django.urls import path
 
 from word_count.core.views import (WordCountFormView)
 
-app_name = "users"
+app_name = "core"
 urlpatterns = [
-    path("~word-count/", view=WordCountFormView, name="word-count"),
+    path("word-count/", view=WordCountFormView.as_view(), name="word-count"),
 ]
