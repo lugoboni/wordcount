@@ -28,6 +28,7 @@ class WordCountFormView(FormView):
         return redirect(self.request.META.get('PATH_INFO'))
 
     def form_valid(self, form):
+        
         form_data = form.cleaned_data
 
         words_to_count = form_data['words']
