@@ -11,6 +11,10 @@ from .forms import (WordCountForm,)
 # from .models import (WordCount,)
 from .use_cases import count_words_use_case
 
+NO_WORDS_MESSAGE = "Please, type some words before submit"
+COUNT_RESULT_MESSAGE = "The typed text has {} words"
+UNKNOW_ERROR = "Something's wrong"
+
 class WordCountFormView(FormView):
 
     template_name = 'pages/word_count_form.html'
@@ -25,7 +29,7 @@ class WordCountFormView(FormView):
         return render(request, self.template_name, self.context)
 
     def form_invalid(self, form):
-        messages.error(self.request, "Something's wrong")
+        messages.error(self.request, UNKNOW_ERROR)
         return redirect(self.request.META.get('PATH_INFO'))
 
     def form_valid(self, form):
@@ -36,8 +40,8 @@ class WordCountFormView(FormView):
         words_number = count_words_use_case(words_to_count)
 
         if words_number == 0:
-            messages.warning(self.request, "Please, type some words before submit")
+            messages.warning(self.request, NO_WORDS_MESSAGE)
         else:
-            messages.success(self.request, words_number)
+            messages.success(self.request, COUNT_RESULT_MESSAGE.format(words_number))
         
         return redirect(self.request.META.get('PATH_INFO'))
