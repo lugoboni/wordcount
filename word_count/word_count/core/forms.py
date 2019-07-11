@@ -4,7 +4,7 @@ from .models import (WordCount)
 
 class WordCountForm(forms.Form):
     
-    words = forms.IntegerField(
+    words = forms.CharField(
         label='WORDS TO COUNT',
-        widget=forms.TextInput()
+        widget=forms.Textarea
     )
