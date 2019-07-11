@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import (WordCount)
+# from .models import (WordCount)
 
 class WordCountForm(forms.Form):
     

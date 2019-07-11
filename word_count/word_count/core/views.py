@@ -8,7 +8,8 @@ from django.contrib import messages
 from django.views.generic.edit import FormView
 
 from .forms import (WordCountForm,)
-from .models import (WordCount,)
+# from .models import (WordCount,)
+from .use_cases import count_words_use_case
 
 class WordCountFormView(FormView):
 
@@ -32,5 +33,11 @@ class WordCountFormView(FormView):
         form_data = form.cleaned_data
 
         words_to_count = form_data['words']
-        messages.success(self.request, words_to_count)
+        words_number = count_words_use_case(words_to_count)
+
+        if words_number == 0:
+            messages.warning(self.request, "Please, type some words before submit")
+        else:
+            messages.success(self.request, words_number)
+        
         return redirect(self.request.META.get('PATH_INFO'))
