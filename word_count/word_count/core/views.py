@@ -12,7 +12,7 @@ from .forms import (WordCountForm,)
 from .use_cases import count_words_use_case
 
 NO_WORDS_MESSAGE = "Please, type some words before submit"
-COUNT_RESULT_MESSAGE = "The typed text has {} words"
+COUNT_RESULT_MESSAGE = "The typed text has {} counted words"
 UNKNOW_ERROR = "Something's wrong"
 
 class WordCountFormView(FormView):

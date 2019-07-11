@@ -26,18 +26,16 @@
         </div>'
 
 		</form>
-
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-8">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        </div>
-       </div>
 	</div>
 </div>
+<div class="row">
+  <div class="col-md-6">
+      {% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+          {% endfor %}
+      {% endif %}
+  </div>
+ </div>
 
 {% endblock content %}
